@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jersey Trust Organisational Structure - Banking Application</title>
+  <meta name="description" content="Organisational chart for Jersey Trust showing Founder, Managing Director, and Directors." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #f8f9fa;
+      --muted: #6c757d;
+      --text: #212529;
+      --accent: #7ee787;
+      --accent2: #8ab4ff;
+      --border: #dee2e6;
+      --founder-bg: #e8f5e8;
+      --md-bg: #f0f8ff;
+      --dir-bg: #f8f9fa;
+    }
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    
+    .wrap { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 20px; 
+    }
+    
+    header { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 16px; 
+      margin-bottom: 30px; 
+      padding: 20px 0;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    .brand { 
+      display: flex; 
+      align-items: center; 
+      gap: 15px; 
+      text-decoration: none; 
+    }
+    
+    .logo {
+      width: 50px; 
+      height: 50px; 
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--accent), var(--accent2));
+      display: grid; 
+      place-items: center; 
+      color: #ffffff; 
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(126,231,135,0.3);
+    }
+    
+    .company-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(126,231,135,0.1), rgba(138,180,255,0.1));
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+    
+    .hero h1 { 
+      margin: 0 0 10px 0; 
+      font-size: 32px; 
+      line-height: 1.2; 
+      color: var(--text);
+    }
+    
+    .hero p { 
+      margin: 0; 
+      color: var(--muted); 
+      font-size: 16px;
+    }
+
+    /* Org chart */
+    .org {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+      padding: 20px 0;
+    }
+    
+    .org ul {
+      padding-left: 0;
+      position: relative;
+      margin: 0;
+      text-align: center;
+      list-style: none;
+    }
+    
+    .org ul ul { 
+      padding-top: 30px; 
+    }
+    
+    .org li {
+      list-style: none;
+      text-align: center;
+      position: relative;
+      padding: 30px 15px 0 15px;
+      margin: 0 auto;
+    }
+    
+    /* Center the founder and MD specifically */
+    .org > ul > li {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .org > ul > li > ul > li {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Keep directors horizontal */
+    .org > ul > li > ul > li > ul > li {
+      display: inline-block;
+      vertical-align: top;
+      width: auto;
+    }
+    
+    /* connectors */
+    .org li::before, .org li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      border-top: 2px solid var(--accent);
+      width: 50%;
+      height: 30px;
+    }
+    
+    .org li::after {
+      right: auto;
+      left: 50%;
+      border-left: 2px solid var(--accent);
+    }
+    
+    .org li:only-child::after, .org li:only-child::before {
+      display: none;
+    }
+    
+    .org li:only-child { 
+      padding-top: 0; 
+    }
+    
+    .org li:first-child::before, .org li:last-child::after {
+      border: 0 none;
+    }
+    
+    .org li:last-child::before {
+      border-right: 2px solid var(--accent);
+      border-radius: 0 5px 0 0;
+    }
+    
+    .org li:first-child::after {
+      border-radius: 5px 0 0 0;
+    }
+    
+    .org ul ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 2px solid var(--accent);
+      width: 0;
+      height: 30px;
+    }
+
+    .node {
+      min-width: 250px;
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 15px;
+      align-items: center;
+      text-align: left;
+      padding: 20px;
+      border-radius: 16px;
+      border: 2px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .node .avatar {
+      width: 50px; 
+      height: 50px; 
+      border-radius: 12px;
+      display: grid; 
+      place-items: center;
+      font-weight: 800;
+      color: #ffffff;
+      background: linear-gradient(145deg, var(--accent), var(--accent2));
+      box-shadow: 0 4px 12px rgba(126,231,135,0.3);
+      font-size: 16px;
+    }
+    
+    .node .name { 
+      font-weight: 700; 
+      font-size: 18px;
+      color: var(--text);
+    }
+    
+    .node .role { 
+      color: var(--muted); 
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* Emphasis by level */
+    .node.founder { 
+      background: var(--founder-bg); 
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(126,231,135,0.2);
+    }
+    
+    .node.md { 
+      background: var(--md-bg); 
+      border-color: var(--accent2);
+      box-shadow: 0 4px 16px rgba(138,180,255,0.2);
+    }
+    
+    .node.dir { 
+      background: var(--dir-bg); 
+      border-color: var(--border);
+    }
+
+    .document-info {
+      margin-top: 40px;
+      padding: 20px;
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+    
+    .document-info h3 {
+      color: var(--text);
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .document-info p {
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    footer { 
+      color: var(--muted); 
+      font-size: 12px; 
+      margin-top: 40px; 
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Print optimizations */
+    @page { 
+      size: A4; 
+      margin: 20mm; 
+    }
+    
+    @media print {
+      body { 
+        background: #fff !important; 
+        font-size: 12px;
+      }
+      
+      .wrap { 
+        padding: 0; 
+        max-width: none;
+      }
+      
+      .hero, .node, .document-info { 
+        background: #fff !important; 
+        border: 1px solid #000 !important; 
+        box-shadow: none !important; 
+        break-inside: avoid;
+      }
+      
+      .node .avatar { 
+        background: #2ecc71 !important; 
+        color: #fff !important; 
+        box-shadow: none !important; 
+      }
+      
+      .org li::before, .org li::after, .org ul ul::before {
+        border-color: #000 !important;
+      }
+      
+      .org li:last-child::before {
+        border-right-color: #000 !important;
+      }
+      
+      .org li:first-child::after {
+        border-left-color: #000 !important;
+      }
+      
+      header {
+        border-bottom-color: #000 !important;
+      }
+      
+      footer {
+        border-top-color: #000 !important;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      
+      .org {
+        page-break-inside: avoid;
+      }
+      
+      .node {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">JT</div>
+        <div class="company-name">Jersey Trust</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Organisational Structure</h1>
+      <p>Two-tier organisational structure with Founder at the top, Managing Director running day-to-day operations, and Directors covering Commercial, Technical, and Sales functions.</p>
+    </section>
+
+    <section class="org" aria-label="Organisation chart">
+      <ul>
+        <li>
+          <div class="node founder" role="group" aria-label="Founder">
+            <div class="avatar" aria-hidden="true">WW</div>
+            <div>
+              <div class="name">Will Wilde</div>
+              <div class="role">Founder</div>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <div class="node md" role="group" aria-label="Managing Director">
+                <div class="avatar" aria-hidden="true">MF</div>
+                <div>
+                  <div class="name">Michael Fortun</div>
+                  <div class="role">Managing Director</div>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <div class="node dir" role="group" aria-label="Commercial Director">
+                    <div class="avatar" aria-hidden="true">MN</div>
+                    <div>
+                      <div class="name">Michael Nugent</div>
+                      <div class="role">Commercial Director</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="node dir" role="group" aria-label="Technical Director">
+                    <div class="avatar" aria-hidden="true">AW</div>
+                    <div>
+                      <div class="name">Aiman Wahizam</div>
+                      <div class="role">Technical Director</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="node dir" role="group" aria-label="Sales Director">
+                    <div class="avatar" aria-hidden="true">JW</div>
+                    <div>
+                      <div class="name">James Wilde</div>
+                      <div class="role">Sales Director</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="document-info">
+      <h3>Document Information</h3>
+      <p><strong>Purpose:</strong> Banking Application - Organisational Structure</p>
+      <p><strong>Generated:</strong> <script>document.write(new Date().toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'}))</script></p>
+      <p><strong>Classification:</strong> Internal Reference Document</p>
+      <p><strong>Note:</strong> This document is for regulatory and compliance purposes only</p>
+    </section>
+
+    <footer>
+      <div>© <script>document.write(new Date().getFullYear())</script> Jersey Trust. All rights reserved.</div>
+      <div>Internal reference document for banking applications. Not for external distribution.</div>
+    </footer>
+  </div>
+</body>
+</html>

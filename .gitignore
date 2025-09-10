@@ -1,0 +1,31 @@
+# Node/web
+node_modules/
+dist/
+.build/
+.next/
+out/
+.vercel/
+.cache/
+
+# Python
+__pycache__/
+.venv/
+
+# Env and logs
+.env
+.env.*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Office & design junk
+*.tmp
+~$*.doc*
+~$*.xls*
+*.psd
+*.ai
+
+# Avoid uploading local exports
+exports/

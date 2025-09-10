@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jersey Trust — UAE Company • Banking • Residency (Crypto‑Friendly)</title>
+  <meta name="description" content="Licensed UAE corporate service provider. Company & foundation setup, crypto‑friendly banking, and residency (Emirates ID) — Jersey Trust." />
+  <link rel="canonical" href="https://www.jerseytrust.ae/" />
+  <style>
+    :root {
+      --bg: #0b0d14;
+      --card: rgba(255,255,255,0.06);
+      --muted: #a9b0c3;
+      --text: #edf0f7;
+      --accent: #7ee787; /* soft neon green */
+      --accent2: #8ab4ff; /* soft blue */
+      --border: rgba(255,255,255,0.14);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(126,231,135,0.25), transparent 60%),
+                  radial-gradient(900px 500px at -10% 20%, rgba(138,180,255,0.18), transparent 60%),
+                  var(--bg);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 28px 28px 20px;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      margin-bottom: 16px;
+    }
+    .brand { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+      text-decoration: none; 
+      color: var(--text); 
+    }
+    .logo {
+      width: 42px; 
+      height: 42px; 
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--accent), var(--accent2));
+      display: grid; 
+      place-items: center; 
+      font-weight: 800; 
+      color: #0b1117;
+      box-shadow: 0 6px 18px rgba(126,231,135,.25), 0 2px 10px rgba(138,180,255,.25);
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(126,231,135,.35), 0 4px 15px rgba(138,180,255,.35);
+    }
+    .brand span { font-size: 18px; font-weight: 700; letter-spacing: 0.3px; }
+    .cta-header a { 
+      color: var(--text); 
+      text-decoration: none; 
+      border: 1px solid var(--border); 
+      padding: 10px 14px; 
+      border-radius: 10px; 
+    }
+
+    .hero {
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border-radius: 16px; 
+      padding: 24px; 
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(126,231,135,0.05), rgba(138,180,255,0.05));
+      pointer-events: none;
+    }
+    
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow { color: var(--muted); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; }
+    h1 { margin: 6px 0 10px; font-size: 28px; line-height: 1.12; }
+    .sub { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    .badges { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px; 
+      margin-bottom: 6px; 
+    }
+    .badge { 
+      font-size: 12px; 
+      padding: 8px 12px; 
+      border-radius: 999px; 
+      border: 1px solid var(--border); 
+      color: var(--text); 
+      background: rgba(255,255,255,0.06); 
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .badge:hover {
+      background: rgba(126,231,135,0.1);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .grid {
+      display: grid; 
+      grid-template-columns: repeat(12, 1fr); 
+      gap: 12px; 
+      align-items: stretch;
+    }
+    
+    /* Simplified 2-column grid for audiences */
+    .audiences {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .card { 
+      border: 1px solid var(--border); 
+      background: var(--card); 
+      border-radius: 14px; 
+      padding: 16px; 
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .card:hover::before {
+      opacity: 1;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(126,231,135,0.15);
+      border-color: rgba(126,231,135,0.3);
+    }
+    
+    .card h3 { 
+      margin: 0 0 8px; 
+      font-size: 16px; 
+      font-weight: 700;
+      color: var(--text);
+    }
+    
+    .card p { 
+      margin: 0; 
+      color: var(--muted); 
+      font-size: 13px; 
+      line-height: 1.5;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .icon { 
+      width: 18px; 
+      height: 18px; 
+      margin-right: 8px; 
+      vertical-align: -3px; 
+    }
+
+    .audiences .card { 
+      min-height: 100px; 
+    }
+
+    .process .step { 
+      display: flex; 
+      gap: 12px; 
+      align-items: flex-start; 
+      margin-bottom: 8px;
+    }
+    
+    .step-num { 
+      font-weight: 700; 
+      color: var(--accent); 
+      font-size: 14px;
+      min-width: 20px;
+    }
+
+    .packages .tier { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 8px; 
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    
+    .tier .price { 
+      font-weight: 700; 
+      font-size: 14px; 
+      color: var(--text); 
+    }
+    
+    .tier ul { 
+      margin: 0; 
+      padding-left: 18px; 
+      color: var(--muted); 
+      font-size: 13px; 
+      line-height: 1.4;
+    }
+
+    .cta {
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 12px; 
+      align-items: center; 
+      justify-content: space-between;
+      border: 1px solid var(--border); 
+      background: linear-gradient(135deg, rgba(126,231,135,0.12), rgba(138,180,255,0.12)); 
+      border-radius: 14px; 
+      padding: 18px; 
+      margin-top: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(126,231,135,0.03), rgba(138,180,255,0.03));
+      pointer-events: none;
+    }
+    
+    .cta > * {
+      position: relative;
+      z-index: 1;
+    }
+    .cta a.button { 
+      padding: 12px 18px; 
+      border-radius: 10px; 
+      background: linear-gradient(145deg, var(--accent), var(--accent2)); 
+      color: #061018; 
+      text-decoration: none; 
+      font-weight: 700; 
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(126,231,135,0.3);
+    }
+    
+    .cta a.button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(126,231,135,0.4);
+    }
+    .cta a.link { 
+      color: var(--text); 
+      opacity: 0.9; 
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .cta a.link:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    footer { 
+      color: var(--muted); 
+      font-size: 11px; 
+      margin-top: 10px; 
+      display: flex; 
+      justify-content: space-between; 
+      gap: 10px; 
+      flex-wrap: wrap; 
+    }
+
+    /* Layout specifics */
+    .card.process { grid-column: span 6; }
+    .card.packages { grid-column: span 6; }
+
+    @media (max-width: 820px) {
+      .audiences {
+        grid-template-columns: 1fr;
+      }
+      .card.process,
+      .card.packages { 
+        grid-column: span 12; 
+      }
+    }
+
+    /* Enhanced print styles for single A4 page */
+    @page { 
+      size: A4; 
+      margin: 15mm; 
+    }
+    
+    @media print {
+      body { 
+        background: white !important; 
+        font-size: 11px;
+        line-height: 1.3;
+      }
+      
+      .page { 
+        padding: 0; 
+        max-width: none;
+        margin: 0;
+      }
+      
+      .hero { 
+        background: #f8f9fa !important; 
+        border: 1px solid #dee2e6 !important;
+        padding: 16px !important;
+        margin-bottom: 12px !important;
+      }
+      
+      .card { 
+        background: white !important; 
+        border: 1px solid #dee2e6 !important;
+        box-shadow: none !important;
+        padding: 12px !important;
+        margin-bottom: 8px !important;
+        page-break-inside: avoid;
+      }
+      
+      .cta { 
+        background: #f8f9fa !important; 
+        border: 1px solid #dee2e6 !important;
+        padding: 12px !important;
+        margin-top: 8px !important;
+      }
+      
+      .cta a.button { 
+        background: #2ecc71 !important; 
+        color: #000 !important; 
+        border: 1px solid #27ae60 !important;
+      }
+      
+      .cta a.link { 
+        color: #000 !important; 
+        text-decoration: underline;
+      }
+      
+      a { 
+        color: #000; 
+        text-decoration: underline; 
+      }
+      
+      .badge { 
+        border-color: #999 !important;
+        background: #f8f9fa !important;
+        color: #333 !important;
+      }
+      
+      h1 { font-size: 20px !important; margin: 4px 0 8px !important; }
+      h3 { font-size: 14px !important; margin: 0 0 6px !important; }
+      .sub { font-size: 12px !important; margin-bottom: 8px !important; }
+      .eyebrow { font-size: 10px !important; }
+      .badge { font-size: 10px !important; padding: 4px 8px !important; }
+      
+      /* Ensure single page layout */
+      .audiences {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+      
+      .audiences .card {
+        min-height: auto !important;
+        padding: 8px !important;
+      }
+      
+             .card.process {
+         grid-column: span 7 !important;
+       }
+       
+       .card.packages {
+         grid-column: span 5 !important;
+       }
+      
+      footer {
+        font-size: 9px !important;
+        margin-top: 8px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <a class="brand" href="https://www.jerseytrust.ae/" target="_blank" rel="noopener">
+        <div class="logo">JT</div>
+        <span>Jersey Trust</span>
+      </a>
+      <div class="cta-header">
+        <a href="https://www.jerseytrust.ae/" target="_blank" rel="noopener">www.jerseytrust.ae</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Licensed UAE Corporate Service Provider</div>
+      <h1>UAE Company & Foundations • Crypto‑Friendly Banking • Residency (Emirates ID)</h1>
+      <p class="sub">For the <strong>unbanked</strong>, <strong>high‑net‑worth</strong>, <strong>digital nomads</strong> & <strong>crypto founders</strong>. Get banked, domiciled, and compliant — without the runaround.</p>
+      <div class="badges">
+        <span class="badge">Company & Foundation Setup</span>
+        <span class="badge">Bank Accounts with Fiat Off‑Ramp</span>
+        <span class="badge">Crypto Deposits (BTC/ETH/USDT)</span>
+        <span class="badge">Residency • Emirates ID</span>
+        <span class="badge">Confidential • Regulated</span>
+      </div>
+    </section>
+
+    <!-- Audience value props -->
+    <section class="audiences" aria-label="Audience value propositions">
+      <article class="card">
+        <h3>Unbanked Entrepreneurs</h3>
+        <p>Open legitimate <strong>UAE corporate bank accounts</strong> with a clear KYC/KYB path. Deposit in crypto, settle to <strong>AED/USD/EUR</strong>, and operate globally.</p>
+      </article>
+      <article class="card">
+        <h3>High‑Net‑Worth & Family Offices</h3>
+        <p>Establish <strong>foundations</strong> for asset protection & succession. Concierge structuring, multi‑bank setup, and ongoing governance support.</p>
+      </article>
+      <article class="card">
+        <h3>Digital Nomads</h3>
+        <p><strong>Residency / Emirates ID</strong> via shareholding. Fast track company formation, compliant presence, and a home base with top‑tier connectivity.</p>
+      </article>
+      <article class="card">
+        <h3>Crypto Founders & Funds</h3>
+        <p>Partner banks that accept <strong>crypto‑sourced revenues</strong>. <strong>On‑/off‑ramp</strong> with compliance handled, so you can scale without de‑banking drama.</p>
+      </article>
+    </section>
+
+    <!-- Process + Packages -->
+    <section class="grid" style="margin-top: 12px;">
+      <article class="card process">
+        <h3>How it Works</h3>
+        <div class="step"><span class="step-num">1.</span> <p><strong>Consult</strong> — map goals (banking, residency, asset protection) and choose mainland/free‑zone/offshore or foundation.</p></div>
+        <div class="step"><span class="step-num">2.</span> <p><strong>Incorporate</strong> — documentation, licensing, and compliance packaged for bank approval.</p></div>
+        <div class="step"><span class="step-num">3.</span> <p><strong>Banking</strong> — open corporate accounts; enable crypto deposit → fiat settlement with partner banks.</p></div>
+        <div class="step"><span class="step-num">4.</span> <p><strong>Residency</strong> — process investor/shareholder visas & Emirates ID (you + key team).</p></div>
+        <div class="step"><span class="step-num">5.</span> <p><strong>Aftercare</strong> — renewals, bookkeeping, governance, additional accounts on demand.</p></div>
+      </article>
+
+             <article class="card packages">
+         <h3>Packages</h3>
+         <div class="tier">
+           <div><strong>Formation + Bank + Residency</strong></div>
+           <div class="price">Custom‑quoted • Timeline tailored</div>
+           <ul>
+             <li>Company (mainland / free‑zone) or Foundation</li>
+             <li>Corporate bank account(s) with crypto off‑ramp</li>
+             <li>Investor/shareholder visa(s) & Emirates ID</li>
+           </ul>
+         </div>
+         <p style="margin-top:8px; color:var(--muted); font-size:12px;">Add‑ons: multi‑bank setup, CFO services, nominee services, governance, compliance & bookkeeping.</p>
+       </article>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div>
+        <div style="font-weight:700; font-size:16px;">Ready to get banked, domiciled, and compliant?</div>
+        <div style="color:var(--muted); font-size:13px;">Speak with Jersey Trust — licensed UAE corporate service provider.</div>
+      </div>
+      <div>
+        <a class="button" href="https://www.jerseytrust.ae/" target="_blank" rel="noopener">Book a Consultation</a>
+        <span style="margin:0 8px"></span>
+        <a class="link" href="https://www.jerseytrust.ae/" target="_blank" rel="noopener">www.jerseytrust.ae</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <script>document.write(new Date().getFullYear())</script> Jersey Trust. All rights reserved.</div>
+      <div>Information is general and not legal/tax advice. Services delivered via licensed UAE entities. Banking & residency are subject to eligibility and regulatory approval.</div>
+    </footer>
+  </main>
+</body>
+</html>
